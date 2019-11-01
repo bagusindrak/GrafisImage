@@ -23,10 +23,9 @@ class Segitiga implements GLSurfaceView.Renderer {
 
     private void initShapes() {
         float vertices[] = {
-                // (x,y,z) of triangle
+                -0.6f, 0.5f, 0,
                 -0.6f, -0.5f, 0,
-                0.6f, -0.5f, 0,
-                0.0f, 0.5f, 0
+                0.6f, 0.0f, 0
         };
 
         ByteBuffer vbb = ByteBuffer.allocateDirect(vertices.length *4 );
@@ -49,7 +48,7 @@ class Segitiga implements GLSurfaceView.Renderer {
 
         gl.glColor4f(0.0f, 1.0f, 0.0f, 0.0f);
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, triangle);
-        gl.glDrawArrays(GL10.GL_TRIANGLES, 0, 3);
+        gl.glDrawArrays(GL10.GL_POLYGON_OFFSET_FILL, 0, 3);
     }
 
 }
